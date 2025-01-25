@@ -1,0 +1,20 @@
+<!-- <p>payment works!</p> -->
+<!-- <flutterwave-make-payment
+    [public_key]="publicKey"
+    amount="10"
+    currency="NGN"
+    payment_options="card"
+    redirect_url=""
+    text="Pay Now"
+    [customer]="customerDetails"
+    [customizations]="customizations"
+    [meta]="meta"
+    [tx_ref]="generateReference()"
+    (callback)="makePaymentCallback($event)"
+    (close)="closedPaymentModal()"
+  >
+</flutterwave-make-payment> -->
+
+<button (click)="payWithPaystack()">
+    Pay with Paystack
+</button>

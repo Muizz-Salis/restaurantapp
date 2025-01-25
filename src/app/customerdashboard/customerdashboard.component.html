@@ -1,0 +1,251 @@
+
+<app-navbar></app-navbar>
+
+
+<div class="mt-5">
+    <div>Welcome, {{firstname}}</div>
+    <form class="flex items-center max-w-sm mx-auto">   
+        <label for="simple-search" class="sr-only">Search</label>
+        <div class="relative w-full">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2"/>
+                </svg>
+            </div>
+            <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search your desired food here" required />
+        </div>
+        <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+            <span class="sr-only">Sear
+                </span>
+        </button>
+    </form>
+</div>
+
+
+
+
+<div class="text-blue-700 text-center mt-5 text-4xl">
+    <h4>Our main dishes</h4>
+</div>
+<br>
+<br>
+<br>
+<!-- <div class="container rounded">
+    <div class="parent-container row flex gap-4 shadow">
+        <div class="border border-1 border-red-700 shadow columns-2">
+            <img class="h-[200px] w-[240px]" src="Images/spag-and-dodo.jpg" alt="">
+            <h4 class="font-bold">Spag and Dodo</h4>
+            <div class="flex justify-between m-4">
+                <h3>#5000</h3>
+                <button class="bg-red-700 text-white rounded p-2">Order <i class="fa-solid fa-arrow-right text-white"></i></button>
+            </div>
+        </div>
+
+        <div class="border border-1 border-red-700 shadow columns-2">
+            <img class="h-[200px] w-[240px]" src="Images/spag-and-dodo.jpg" alt="">
+            <h4 class="font-bold">Spag and Dodo</h4>
+            <div class="flex justify-between m-4">
+                <h3>#5000</h3>
+                <button class="bg-red-700 text-white rounded p-2">Order <i class="fa-solid fa-arrow-right text-white"></i></button>
+            </div>
+        </div>
+
+        <div class="border border-1 border-red-700 shadow columns-2">
+            <img class="h-[200px] w-[240px]" src="Images/spag-and-dodo.jpg" alt="">
+            <h4 class="font-bold">Spag and Dodo</h4>
+            <div class="flex justify-between m-4">
+                <h3>#5000</h3>
+                <button class="bg-red-700 text-white p-2 rounded">Order <i class="fa-solid fa-arrow-right text-white"></i></button>
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+</div> -->
+<!-- food-list.component.html -->
+<div>
+    <h2 class="text-center my-4 text-blue-700 text-2xl">Main Dishes</h2>
+    <div *ngIf="mainDishes.length>0; else noMainDishes" class="grid grid-cols-2 md:grid-cols-4 gap-4 ps-3 pe-3 ">
+        <div *ngFor="let dish of mainDishes" class="shadow-md rounded-2xl">
+            <img class="rounded-t-2xl" [src]="'http://localhost/restaurantapp/' + dish.foodimage" alt="{{ dish.foodname }}">
+            <div class="flex flex-col items-center mx-auto text-center py-4">
+                <h3>{{ dish.foodname }}</h3>
+                <p>{{ dish.price }}</p>
+                <p>{{ dish.description }}</p>
+                
+                <!-- <button (click)="addToCart(dish)">Add to Cart</button> -->
+                <button class="flex items-center order-button bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 transition duration-300" [routerLink]="['/cart', dish.id]">
+                    Order Now
+                    <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <ng-template class="mx-auto" #noMainDishes>
+        <div class="flex flex-col items-center justify-center h-full text-center mx-auto">
+            <p class="text-lg text-gray-700">No Main Dishes Available at the moment. Check back later.</p>
+        </div>
+    </ng-template>
+
+
+
+    <h2 class="text-center my-4 text-blue-700 text-2xl">Swallow</h2>
+    <div *ngIf="Swallows.length>0; else noSwallows" class="grid grid-cols-2 md:grid-cols-4 gap-4 ps-3 pe-3 ">
+        <div *ngFor="let okele of Swallows" class="border border-blue-500 ">
+            <img [src]="'http://localhost/restaurantapp/' + okele.foodimage" alt="{{ okele.foodname }}">
+            <div class="flex flex-col items-center mx-auto text-center">
+                <h3>{{ okele.foodname }}</h3>
+                <p>#{{ okele.price }}</p>
+                <p> {{ okele.description }}</p>
+                <button class="flex  items-center order-button bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 transition duration-300" [routerLink]="['/cart', okele.id]">
+                    Order Now
+                    <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                
+                </button>
+            </div>
+        </div>
+    </div>
+    <ng-template class="mx-auto" #noSwallows>
+        <div class="flex flex-col items-center justify-center h-full text-center mx-auto">
+            <p class="text-lg text-gray-700">No Swallow Available at the moment. Check back later.</p>
+        </div>
+    </ng-template>
+
+
+    <h2 class="text-center my-4 text-blue-700 text-2xl">Snacks</h2>
+    <div *ngIf="Snacks.length>0; else noSnacks" class="grid grid-cols-2 md:grid-cols-4 gap-4 ps-3 pe-3">
+        <div *ngFor="let snack of Snacks">
+            <img [src]="'http://localhost/restaurantapp/' + snack.foodimage" alt="{{ snack.foodname }}">
+            <div class="flex flex-col items-center mx-auto text-center">
+                <h3>{{ snack.foodname }}</h3>
+                <p>#{{ snack.price }}</p>
+                <p>{{ snack.description }}</p>
+                <button class="flex  items-center order-button bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 transition duration-300" [routerLink]="['/cart', snack.id]" >
+                    Order Now
+                    <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                
+                </button>
+
+                <a href="" routerLink="/"></a>
+
+                <!-- <button (click)="addToCart(dish)">Add to Cart</button> -->
+            </div>
+        </div>
+    </div>
+    <ng-template class="mx-auto" #noSnacks>
+        <div class="flex flex-col items-center justify-center h-full text-center mx-auto">
+            <p class="text-lg text-gray-700">No Snacks Available at the moment. Check back later.</p>
+        </div>
+    </ng-template>
+    <!-- <ul *ngIf="mainDishes.length > 0; else noMainDishes">
+      <li *ngFor="let dish of mainDishes">
+        <h3>{{ dish.foodname }}</h3>
+        <p>Category: {{ dish.category }}</p>
+        <p>Quantity: {{ dish.quantity }}</p>
+        <p>Price: {{ dish.price }}</p>
+        <p>Description: {{ dish.description }}</p>
+        <img [src]="dish.foodimage" alt="{{ dish.foodname }}" />
+      </li>
+    </ul>
+    <ng-template #noMainDishes>No main dishes found.</ng-template>
+  
+    <h2>Snacks</h2>
+    <ul *ngIf="Snacks.length > 0; else noSnacks">
+      <li *ngFor="let snack of Snacks">
+        <h3>{{ snack.foodname }}</h3>
+        <p>Category: {{ snack.category }}</p>
+        <p>Quantity: {{ snack.quantity }}</p>
+        <p>Price: {{ snack.price }}</p>
+        <p>Description: {{ snack.description }}</p>
+        <img [src]="snack.foodimage" alt="{{ snack.foodname }}" />
+      </li>
+    </ul>
+    <ng-template #noSnacks>No snacks found.</ng-template>
+    
+    <h2>Swallow</h2>
+    <ul *ngIf="Swallow.length > 0; else noSwallows">
+      <li *ngFor="let swallow of Snacks">
+        <h3>{{ swallow.foodname }}</h3>
+        <p>Category: {{ swallow.category }}</p>
+        <p>Quantity: {{ swallow.quantity }}</p>
+        <p>Price: {{ swallow.price }}</p>
+        <p>Description: {{ swallow.description }}</p>
+        <img [src]="swallow.foodimage" alt="{{ swallow.foodname }}" />
+      </li>
+    </ul>
+    <ng-template #noSwallows>No swallow found.</ng-template> -->
+    <!-- <p *ngIf="errorMessage">{{ errorMessage }}</p> -->
+  </div>
+
+  <app-footer></app-footer>
+  
+
+
+
+<!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 ps-3 pe-3">
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="Images/spag-and-dodo.jpg" alt="">
+    </div>
+
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="Images/grilled-chicken.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="Images/spag-and-dodo.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="Images/chickwhizz.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="Images/dodo-meal.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="Images/spicy-rice.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="Images/chicken-and-chips.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="Images/chicken-salad.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
+    </div>
+    <div>
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="">
+    </div>
+</div> -->
+
+
+

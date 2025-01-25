@@ -1,0 +1,10 @@
+<input 
+  type="text" 
+  #inputRef
+  placeholder="Search..." 
+  (input)="onSearch(inputRef.value)"
+  class="search-input"
+/>
+<ul *ngIf="filteredResults.length">
+  <li *ngFor="let result of filteredResults">{{ result }}</li>
+</ul>

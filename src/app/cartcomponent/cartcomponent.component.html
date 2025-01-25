@@ -1,0 +1,25 @@
+<div class="container mx-20">
+    <h5 class="text-center">Cart page</h5>
+
+
+    <div class="flex gap-20">
+        <img [src]="'http://localhost/restaurantapp/' + foodItem.foodimage " alt="" width="400px">
+
+        <div class="flex flex-col gap-3 px-8">
+            <h6 class="font-bold">{{ foodItem.foodname }}</h6>
+            <p class="font-bold">#{{ foodItem.price }}</p>
+
+            <div class="mb-2 flex items-center gap-2">
+                <button class="items-center bg-yellow-300 text-white font-bold py-2 px-4 rounded" [disabled]="count <= 1" (click)="arithmethic(foodItem.id, '-')">-</button>
+                <p>{{count}}</p>
+                <button class="items-center bg-yellow-300 text-white font-bold py-2 px-4 rounded" [disabled]="count >= foodQuantity" (click)="arithmethic(foodItem.id, '+')">+</button>
+            </div>
+            <button class="items-center bg-yellow-500 text-white py-2 px-4 rounded" (click)="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    
+</div>
+<br>
+
+<app-footer></app-footer>
