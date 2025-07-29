@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [],
   templateUrl: './payment.component.html',
-  styleUrl: './payment.component.css'
+  // styleUrl: './payment.component.css'
 })
 export class PaymentComponent {
   constructor(private paymentService: PaymentService, public route:Router) {}

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './otpmodalcomponent.component.html',
-  styleUrl: './otpmodalcomponent.component.css'
+  // styleUrl: './otpmodalcomponent.component.css'
 })
 export class OtpmodalcomponentComponent {
 

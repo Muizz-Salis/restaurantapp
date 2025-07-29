@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule, OtpmodalcomponentComponent, RouterModule],
   templateUrl: './forgot-password.component.html',
-  styleUrl: './forgot-password.component.css'
+  // styleUrl: './forgot-password.component.css'
 })
 export class ForgotPasswordComponent {
   email: any = '';

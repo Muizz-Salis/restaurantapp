@@ -8,7 +8,7 @@ import { debounceTime } from 'rxjs/operators';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './test.component.html',
-  styleUrl: './test.component.css'
+  // styleUrl: './test.component.css'
 })
 export class TestComponent {
 

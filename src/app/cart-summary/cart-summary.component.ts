@@ -12,7 +12,7 @@ import { FooterComponent } from "../footer/footer.component";
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FooterComponent],
   templateUrl: './cart-summary.component.html',
-  styleUrl: './cart-summary.component.css'
+  // styleUrl: './cart-summary.component.css'
   
 })
 export class CartSummaryComponent {

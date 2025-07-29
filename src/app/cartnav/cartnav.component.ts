@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './cartnav.component.html',
-  styleUrl: './cartnav.component.css'
+  // styleUrl: './cartnav.component.css'
 })
 export class CartnavComponent {
 

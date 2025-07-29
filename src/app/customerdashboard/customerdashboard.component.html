@@ -72,7 +72,7 @@
     <h2 class="text-center my-4 text-blue-700 text-2xl">Main Dishes</h2>
     <div *ngIf="mainDishes.length>0; else noMainDishes" class="grid grid-cols-2 md:grid-cols-4 gap-4 ps-3 pe-3 ">
         <div *ngFor="let dish of mainDishes" class="shadow-md rounded-2xl">
-            <img class="rounded-t-2xl" [src]="'http://localhost/restaurantapp/' + dish.foodimage" alt="{{ dish.foodname }}">
+            <img class="rounded-t-2xl" [src]="'http://localhost/restaurantapp/' + dish.image" alt="{{ dish.foodname }}">
             <div class="flex flex-col items-center mx-auto text-center py-4">
                 <h3>{{ dish.foodname }}</h3>
                 <p>{{ dish.price }}</p>
@@ -101,7 +101,7 @@
     <h2 class="text-center my-4 text-blue-700 text-2xl">Swallow</h2>
     <div *ngIf="Swallows.length>0; else noSwallows" class="grid grid-cols-2 md:grid-cols-4 gap-4 ps-3 pe-3 ">
         <div *ngFor="let okele of Swallows" class="border border-blue-500 ">
-            <img [src]="'http://localhost/restaurantapp/' + okele.foodimage" alt="{{ okele.foodname }}">
+            <img [src]="'http://localhost/restaurantapp/' + okele.image" alt="{{ okele.foodname }}">
             <div class="flex flex-col items-center mx-auto text-center">
                 <h3>{{ okele.foodname }}</h3>
                 <p>#{{ okele.price }}</p>
@@ -126,7 +126,7 @@
     <h2 class="text-center my-4 text-blue-700 text-2xl">Snacks</h2>
     <div *ngIf="Snacks.length>0; else noSnacks" class="grid grid-cols-2 md:grid-cols-4 gap-4 ps-3 pe-3">
         <div *ngFor="let snack of Snacks">
-            <img [src]="'http://localhost/restaurantapp/' + snack.foodimage" alt="{{ snack.foodname }}">
+            <img [src]="'http://localhost/restaurantapp/' + snack.image" alt="{{ snack.foodname }}">
             <div class="flex flex-col items-center mx-auto text-center">
                 <h3>{{ snack.foodname }}</h3>
                 <p>#{{ snack.price }}</p>
@@ -150,102 +150,11 @@
             <p class="text-lg text-gray-700">No Snacks Available at the moment. Check back later.</p>
         </div>
     </ng-template>
-    <!-- <ul *ngIf="mainDishes.length > 0; else noMainDishes">
-      <li *ngFor="let dish of mainDishes">
-        <h3>{{ dish.foodname }}</h3>
-        <p>Category: {{ dish.category }}</p>
-        <p>Quantity: {{ dish.quantity }}</p>
-        <p>Price: {{ dish.price }}</p>
-        <p>Description: {{ dish.description }}</p>
-        <img [src]="dish.foodimage" alt="{{ dish.foodname }}" />
-      </li>
-    </ul>
-    <ng-template #noMainDishes>No main dishes found.</ng-template>
   
-    <h2>Snacks</h2>
-    <ul *ngIf="Snacks.length > 0; else noSnacks">
-      <li *ngFor="let snack of Snacks">
-        <h3>{{ snack.foodname }}</h3>
-        <p>Category: {{ snack.category }}</p>
-        <p>Quantity: {{ snack.quantity }}</p>
-        <p>Price: {{ snack.price }}</p>
-        <p>Description: {{ snack.description }}</p>
-        <img [src]="snack.foodimage" alt="{{ snack.foodname }}" />
-      </li>
-    </ul>
-    <ng-template #noSnacks>No snacks found.</ng-template>
-    
-    <h2>Swallow</h2>
-    <ul *ngIf="Swallow.length > 0; else noSwallows">
-      <li *ngFor="let swallow of Snacks">
-        <h3>{{ swallow.foodname }}</h3>
-        <p>Category: {{ swallow.category }}</p>
-        <p>Quantity: {{ swallow.quantity }}</p>
-        <p>Price: {{ swallow.price }}</p>
-        <p>Description: {{ swallow.description }}</p>
-        <img [src]="swallow.foodimage" alt="{{ swallow.foodname }}" />
-      </li>
-    </ul>
-    <ng-template #noSwallows>No swallow found.</ng-template> -->
-    <!-- <p *ngIf="errorMessage">{{ errorMessage }}</p> -->
   </div>
 
   <app-footer></app-footer>
   
-
-
-
-<!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 ps-3 pe-3">
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="Images/spag-and-dodo.jpg" alt="">
-    </div>
-
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="Images/grilled-chicken.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="Images/spag-and-dodo.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="Images/chickwhizz.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="Images/dodo-meal.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="Images/spicy-rice.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="Images/chicken-and-chips.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="Images/chicken-salad.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="">
-    </div>
-</div> -->
 
 
 

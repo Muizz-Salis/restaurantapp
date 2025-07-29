@@ -9,7 +9,7 @@ import { Router, RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink, CommonModule,FormsModule, ReactiveFormsModule,HttpClientModule],
   templateUrl: './adminsignin.component.html',
-  styleUrl: './adminsignin.component.css'
+  // styleUrl: './adminsignin.component.css'
 })
 export class AdminsigninComponent {
   constructor(public formbuilder: FormBuilder, public routes:Router, public http:HttpClient){}

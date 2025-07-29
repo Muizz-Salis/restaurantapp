@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-adminupload',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './adminupload.component.html',
-  styleUrl: './adminupload.component.css'
+  // styleUrl: './adminupload.component.css'
 })
 export class AdminuploadComponent {
   constructor(public formbuilder:FormBuilder, public https:HttpClient){
@@ -17,7 +17,7 @@ export class AdminuploadComponent {
   public foodupload:any;
   public foodCategory= [
     {id:1, name:'Select Food Category'},
-    {id:2, name:'Swallow'},
+    {id:2, name:'Swallows'},
     {id:3, name:'Main Dishes'},
     {id:4, name:'Snacks'},
   ]
@@ -36,22 +36,9 @@ export class AdminuploadComponent {
   selectFoodImage(event:any){
 
     this.image= event.target.files[0];
-    // console.log(this.image);
     
-
   }
   UploadFood(){
-
-    // let obj = {
-    //   foodname: this.foodupload.value.foodname,
-    //   category: this.foodupload.value.category,
-    //   quantity: this.foodupload.value.quantity,
-    //   price: this.foodupload.value.price,
-    //   description: this.foodupload.value.description,
-    //   foodimage: this.foodupload.value.foodimage
-    // }
-
-    // console.log(obj);
 
     const formdata = new FormData();
 
@@ -60,7 +47,8 @@ export class AdminuploadComponent {
     formdata.append('quantity', this.foodupload.value.quantity);
     formdata.append('price', this.foodupload.value.price);
     formdata.append('description', this.foodupload.value.description);
-    formdata.append('foodimage', this.image, this.image.name);
+    formdata.append('foodimage', this.image);
+
 
     // Send to server
     this.https.post('http://localhost/restaurantapp/upload.php', formdata).subscribe((data: any) => {

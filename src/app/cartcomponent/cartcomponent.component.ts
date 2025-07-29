@@ -10,7 +10,7 @@ import { FooterComponent } from "../footer/footer.component";
   standalone: true,
   imports: [CommonModule, FooterComponent],
   templateUrl: './cartcomponent.component.html',
-  styleUrl: './cartcomponent.component.css',
+  // styleUrl: './cartcomponent.component.css',
 })
 export class CartcomponentComponent {
   public count: number = 1 ;
@@ -34,16 +34,19 @@ export class CartcomponentComponent {
     let obj = {
       foodid: foodid
     }
-    this.http.post('http://localhost/restaurantapp/foodcart.php', obj).subscribe((data: any) =>{
-      this.foodQuantity = data.quantity
-      console.log(this.foodQuantity);
+    // this.http.post('http://localhost/restaurantapp/foodcart.php', obj).subscribe((data: any) =>{
+    //   this.foodQuantity = data.quantity
+    //   console.log(this.foodQuantity);
       
-    })
+    // })
     
     if (action === '+') {
-      if (this.count < this.foodQuantity) {
+      let q = this.foodItem.quantity
+      if (this.count < q-1) {
         this.count++;
-      }
+        
+      } 
+      
     } else if (action === '-') {
       if (this.count > 1) {
         this.count--;

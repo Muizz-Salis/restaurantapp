@@ -13,7 +13,7 @@ import { FoodService } from '../services/food.service';
   standalone: true,
   imports: [],
   templateUrl: './foodlist.component.html',
-  styleUrl: './foodlist.component.css'
+  // styleUrl: './foodlist.component.css'
 })
 export class FoodlistComponent {
   public foodList: any =[];

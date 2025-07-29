@@ -13,7 +13,7 @@ import { FooterComponent } from "../footer/footer.component";
   standalone: true,
   imports: [NavbarComponent, HttpClientModule, CommonModule, RouterModule, CartnavComponent, FooterComponent],
   templateUrl: './customerdashboard.component.html',
-  styleUrl: './customerdashboard.component.css',
+  // styleUrl: './customerdashboard.component.css',
 })
 export class CustomerdashboardComponent {
   constructor(
@@ -44,14 +44,27 @@ export class CustomerdashboardComponent {
   public Snacks: any[] = [];
   public Swallows: any[] = [];
 
-  public foodUrl = 'http://localhost/restaurantapp/landingpage.php';
+  public foodUrl = 'http://localhost/restaurantapp/fetchfoods.php';
   getUploadedFood() {
     
     this.http.get(`${this.foodUrl}`).subscribe((data: any) => {
+
+      console.log(data);
+      
+      // data.map((info: any)=> {
+      //   console.log(info);
+
+      //   if (info.category === 'Swallow') {
+      //     console.log(info.length);
+          
+          
+      //   }
+        
+      // })
       
       if (data['Main Dishes'] && Array.isArray(data['Main Dishes'])) {
         this.mainDishes = data['Main Dishes'];
-        console.log(data['Main Dishes']);
+        console.log(data['Main Dishes'][0].image);
       } else {
         this.mainDishes = []; // No data or not an array
         console.warn('No main dishes found or not an array.');
@@ -65,8 +78,8 @@ export class CustomerdashboardComponent {
       }
 
 
-      if (data['Swallow'] && Array.isArray(data['Swallow'])) {
-        this.Swallows = data['Swallow'];
+      if (data['Swallows'] && Array.isArray(data['Swallows'])) {
+        this.Swallows = data['Swallows'];
       } else {
         this.Swallows = []; // No data or not an array
         console.warn('No swallow found or not an array.');

@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './reset-password.component.html',
-  styleUrl: './reset-password.component.css'
+  // styleUrl: './reset-password.component.css'
 })
 export class ResetPasswordComponent implements OnInit {
 
